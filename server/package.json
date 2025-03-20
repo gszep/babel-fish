@@ -1,0 +1,26 @@
+{
+  "name": "babel-fish-server",
+  "version": "1.0.0",
+  "description": "A server for the Babel 魚 project, providing speech recognition and translation services.",
+  "main": "src/server.ts",
+  "scripts": {
+    "start": "ts-node src/server.ts",
+    "build": "tsc",
+    "dev": "ts-node-dev src/server.ts"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "@google-cloud/speech": "^3.0.0",
+    "@google-cloud/translate": "^6.0.0",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "ts-node": "^10.0.0",
+    "ts-node-dev": "^1.1.8",
+    "@types/express": "^4.17.11"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

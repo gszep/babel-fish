@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app
+    environment:
+      - REACT_APP_API_URL=http://server:5000/api
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server:/app
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - GOOGLE_PROJECT_ID=${GOOGLE_PROJECT_ID}
+    depends_on:
+      - client
+
+networks:
+  default:
+    driver: bridge
